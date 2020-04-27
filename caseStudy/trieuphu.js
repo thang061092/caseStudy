@@ -1,5 +1,5 @@
 // dữ liệu câu hỏi
-const QUESTION = [
+const Question = [
     {
         question: "Nhất quỷ nhì ..., Thứ ba học ...",
         point: 200,
@@ -166,11 +166,41 @@ const QUESTION = [
         correct: "C"
     },
 ]
-let Millionaire=function () {
+let Millionaire = function () {
+    this.point = 0;
     this._color = '#3498db';
     this._selectArray = [];
     this._number5050 = 0;
     this._keep = 0;
     let self = this;
 
+    this.startGame = function () {
+        this._boardPage = 0;
+        this._use5050 = false;
+        this._useSurvey = false;
+        this.hide($("#question-form"));
+        this.hide($("#button"));
+        this.show($("#board-button"));
+        this.hide($("#submit-answer"));
+        this.hide($('#next-question'));
+        this.hide($("#restart-game"));
+        this.hide($("#alert"));
+        this.hide($("#survey-region"));
+    }
+    this.restartGame = function () {
+        this._boardPage = 0;
+        this.point = 0;
+        $("#question-number").html(this._boardPage + 1);
+        $("#display-question").html(Question[this._boardPage]);
+        $("#reward").empty();
+        $("#surveyBoard").empty();
+        this.show($('#board-button'));
+        this.hide($("#submit-answer"));
+        this.hide($('#restart-game'));
+        this.hide($('#next-question'));
+        this.hide($('#alert'));
+        this.hide($("#survey-region"));
+        this._use5050 = false;
+        this._useSurvey = false;
+    }
 }
