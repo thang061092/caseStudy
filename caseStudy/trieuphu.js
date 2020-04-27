@@ -186,6 +186,9 @@ let Millionaire = function () {
         this.hide($("#restart-game"));
         this.hide($("#alert"));
         this.hide($("#survey-region"));
+        this.showBoard();
+        this.drawMap();
+        this.changeStepColor();
     }
     this.restartGame = function () {
         this._boardPage = 0;
@@ -202,5 +205,34 @@ let Millionaire = function () {
         this.hide($("#survey-region"));
         this._use5050 = false;
         this._useSurvey = false;
+        this.showBoard();
     }
+    this.showBoard = function () {
+        let index = this._boardPage * 5;
+        this.show($("#withdraw-button"));
+        $("#point").html(this.point + "vnd");
+        $("#question-number").html(this._boardPage + 1);
+        $("#display-question").html(Question[this._boardPage]);
+        $("#boxA").append("<span class='char'>A</span>" + this.Question[index]);
+        $("#boxB").append("<span class='char'>B</span>" + this.Question[index + 1]);
+        $("#boxC").append("<span class='char'>C</span>" + this.Question[index + 2]);
+        $("#boxD").append("<span class='char'>D</span>" + this.Question[index + 3]);
+        let answerID = "#box" + Question[this._boardPage].correct;
+        $(answerID).attr('class', 'answerBox');
+        this.show($("#reward"));
+        this.hide($("#survey-region"));
+        this.show5050();
+        this.showSurvey();
+    }
+    this.drawMap=function () {
+        let countQuestion = Question.length;
+        for (let i = 1; i <= countQuestion; i++) {
+            if (i % 5 !== 0) {
+                $("#reward").append("<div class='rewardStep' id='step" + i + "'><p class='number'>" + i + "</p><span class='step'>"+Question[i-1].point+" $</span></div>")
+            } else {
+                $("#reward").append("<div class='specialRewardStep' id='step" + i + "'><p class='specialNumber'>" + i + "</p><span class='step'>"+Question[i-1].point+" $</span></div>")
+            }
+        }
+    }
+
 }
