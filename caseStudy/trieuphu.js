@@ -166,10 +166,11 @@ const QUESTION = [
         correct: "C"
     },
 ]
+let Millionaire=function () {
+    this._color = '#3498db';
+    this._selectArray = [];
+    this._number5050 = 0;
+    this._keep = 0;
+    let self = this;
 
-
-$(document).ready(function () {
-    console.log("ready");
-    
-
-});
+}

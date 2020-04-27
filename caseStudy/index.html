@@ -7,7 +7,14 @@
     <h2>Nào chúng ta bắt đầu đi tìm ai là triệu phú!!!</h2>
 
 </head>
-<body>
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body onload="init()">
 <div id="each-question" class="row">
     <table>
         <thead>
@@ -34,7 +41,6 @@
         <button class="btn btn-default" id="withdraw-button">Stop playing</button>
         <button class="btn btn-info" id="help5050-button">50 : 50</button>
         <button class="btn btn-primary" id="helpSurvey-button">Survey</button>
-        <button class="btn btn-google" id="helpGoogle-button">Google</button>
 
     </div>
     <div class="from-group" id="result-button">
@@ -55,7 +61,7 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="trieuphu.js"></script>
 </body>
 </html>
