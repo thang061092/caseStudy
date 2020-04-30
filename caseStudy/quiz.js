@@ -34,7 +34,7 @@ class Quiz {
 }
 
 let quizs = [];
-let current = 0;
+let count = 0;
 
 function creatQuiz() {
 
@@ -45,48 +45,47 @@ function creatQuiz() {
 }
 
 function showQuiz() {
-    document.getElementById('point').innerHTML="Point : " +quizs[current].score + "$";
-    document.getElementById('question-number').innerHTML = "Question " + (current + 1) + " :";
-    document.getElementById('question').innerHTML = quizs[current].question;
-    for (let i = 0; i < quizs[current].answer.length; i++) {
-        document.getElementById('' + i).innerHTML = quizs[current].answer[i];
+    document.getElementById('point').innerHTML = "Point : " + quizs[count].score + "$";
+    document.getElementById('question-number').innerHTML = "Question " + (count + 1) + " :";
+    document.getElementById('question').innerHTML = quizs[count].question;
+    for (let i = 0; i < quizs[count].answer.length; i++) {
+        document.getElementById('' + i).innerHTML = quizs[count].answer[i];
     }
 
 
 }
 
 function selectAnswer(index) {
-    let select = quizs[current].selectAnswer(index);
-    // current = select ? current += 1 : 0;
+    let select = quizs[count].selectAnswer(index);
+    // count = select ? count += 1 : 0;
     if (!select) {
         checkPoint();
-        current = 0;
+        count = 0;
     } else {
-        current += 1;
+        count += 1;
+         console.log(count);
     }
-    console.log(current);
-    if (current >= questions.length) {
+    if (count >= questions.length) {
         alert("Bạn Là triệu phú");
-        current = 0;
+        count = 0;
     }
     showQuiz();
 }
 
 function checkPoint() {
     let point = 0;
-    if (current < 5) {
+    if (count < 5) {
         point = 0;
-    } else if (current >= 5 && current < 10) {
+    } else if (count >= 5 && count < 10) {
         point = 5;
-    } else if (current >= 10 && current < 15) {
+    } else if (count >= 10 && count < 15) {
         point = 10;
     }
-    console.log(point);
-    console.log(current);
-    alert("ban nhan so tien thuong la :" + quizs[point].score);
+    alert("Bạn ra về với số tiền thưởng là :" + quizs[point].score);
 
 }
-
 creatQuiz();
 showQuiz();
+console.log(quizs);
+
 

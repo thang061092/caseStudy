@@ -2,13 +2,9 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <title>Ai Là Triệu Phú</title>
     <link rel="stylesheet" href="style.css" media="screen">
-    <script src="game.js"></script>
-
-
 </head>
 <body style="">
 <div id="start-game">
@@ -23,24 +19,24 @@
     <p class="point" id="point"></p>
     <br>
     <h2 class="question-number" id="question-number"> Question 1 : </h2>
-    <p class="question" id="question">Nhất quỷ nhì ..., Thứ ba học ...?</p>
+    <p class="question" id="question"></p>
     <br>
     <ul class="answers">
-        <li id="0" onclick="selectAnswer(this.id)">ma, trò</li>
-        <li id="1" onclick="selectAnswer(this.id)">tam, sinh</li>
-        <li id="2" onclick="selectAnswer(this.id)">trò, ma</li>
-        <li id="3" onclick="selectAnswer(this.id)">trời, đất</li>
+        <li id="0" onclick="selectAnswer(this.id)"></li>
+        <li id="1" onclick="selectAnswer(this.id)"></li>
+        <li id="2" onclick="selectAnswer(this.id)"></li>
+        <li id="3" onclick="selectAnswer(this.id)"></li>
     </ul>
+    <p id="time">Time:</p>
     <br>
-    <button class="restart">Play again</button>
     <div class="help">
         <button class="help5050">50/50</button>
         <button class="exit">Bỏ Qua</button>
+        <button class="stop">Stop Play</button>
     </div>
     <br><br>
     <audio id="sound" src="Sau_quang_cao.ogg"></audio>
 </div>
-
 <script>
     function start() {
     document.getElementById('main').style.display = "block";
@@ -48,11 +44,11 @@
     document.getElementById('sound').play();
 }
 </script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 <!--<script src="script.js"></script>-->
-<script src="game.js"></script>
-<script src="quiz.js"></script>
 
+<script src="quiz.js"></script>
+<script src="game.js"></script>
 </body>
 </html>
 
