@@ -22,15 +22,16 @@ class Game {
         }
     }
 
-    selectAnswer(index) {
-        let select = this.quizs[this.count].selectAnswer(index);
+    selectAnswers(index) {
+        let select = this.quizs[this.count].selectAnswers(index);
         if (!select) {
             this.checkPoint();
             this.count = 0;
         } else {
             this.count += 1;
+            console.log(this.count);
         }
-        if (this.count >= questions.length) {
+        if (this.count >= this.number) {
             alert("Bạn Là triệu phú");
             this.count = 0;
         }
@@ -47,9 +48,18 @@ class Game {
         alert("ban nhan so tien thuong la :" + this.quizs[this.point].score);
 
     }
+    changeColor(){
+
+    }
+    nextQuizs(){
+
+    }
+    countDown(){
+
+    }
 }
 
-let game = new Game(10);
+let game = new Game(5);
 game.creatQuizs();
 console.log(game);
 game.showQuizs();

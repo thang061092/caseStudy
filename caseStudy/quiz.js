@@ -84,8 +84,8 @@ function checkPoint() {
     alert("Bạn ra về với số tiền thưởng là :" + quizs[point].score);
 
 }
-creatQuiz();
-showQuiz();
-console.log(quizs);
+// creatQuiz();
+// showQuiz();
+// console.log(quizs);
 
 
