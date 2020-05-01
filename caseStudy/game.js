@@ -32,7 +32,7 @@ class Game {
             console.log(this.count);
         }
         if (this.count >= this.number) {
-            alert("Bạn Là triệu phú");
+            alert("Xin chúc mừng bạn Là triệu phú");
             this.count = 0;
         }
         this.showQuizs();
@@ -45,7 +45,7 @@ class Game {
         } else if (this.count >= 10 && this.count < 15) {
             this.point = 10;
         }
-        alert("ban nhan so tien thuong la :" + this.quizs[this.point].score);
+        alert("Số tiền bạn nhận được là :" + this.quizs[this.point].score);
 
     }
     changeColor(){
@@ -59,9 +59,9 @@ class Game {
     }
 }
 
-let game = new Game(5);
-game.creatQuizs();
-console.log(game);
-game.showQuizs();
+// let game = new Game(5);
+// game.creatQuizs();
+// console.log(game);
+// game.showQuizs();
 
 
