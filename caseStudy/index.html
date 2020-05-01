@@ -22,20 +22,26 @@
     <p class="question" id="question"></p>
     <br>
     <ul class="answers">
-        <li id="0" onclick="selectAnswer(this.id)"></li>
-        <li id="1" onclick="selectAnswer(this.id)"></li>
-        <li id="2" onclick="selectAnswer(this.id)"></li>
-        <li id="3" onclick="selectAnswer(this.id)"></li>
+        <li id="0" onclick="selectAnswers(this.id)"></li>
+        <li id="1" onclick="selectAnswers(this.id)"></li>
+        <li id="2" onclick="selectAnswers(this.id)"></li>
+        <li id="3" onclick="selectAnswers(this.id)"></li>
     </ul>
-    <p id="time">Time:</p>
+    <br>
+    <div id="time"></div>
     <br>
     <div class="help">
-        <button class="help5050">50/50</button>
-        <button class="exit">Bỏ Qua</button>
-        <button class="stop">Stop Play</button>
+        <button class="help5050" id="help5050-sound" onclick="this.id">50/50</button>
+        <button class="exit" id="exit-sound" onclick="this.id">Bỏ Qua</button>
+        <button class="stop" id="stop-sound" onclick="this.id">Stop Play</button>
     </div>
     <br><br>
     <audio id="sound" src="Sau_quang_cao.ogg"></audio>
+    <audio id="true" src="C1-4---Dung.ogg"></audio>
+    <audio id="false" src="C8,_13_sai.ogg"></audio>
+    <audio id="sound-5050" src="5050.ogg"></audio>
+    <audio id="sound-exit" src="Hot_Seat_-_Next_Player_3.ogg"></audio>
+
 </div>
 <script>
     function start() {

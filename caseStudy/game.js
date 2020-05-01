@@ -3,7 +3,8 @@ class Game {
         this.quizs = [];
         this.count = 0;
         this.number = number;
-        this.point=0;
+        this.point = 0;
+        this.time = 30;
     }
 
     creatQuizs() {
@@ -12,7 +13,6 @@ class Game {
             this.quizs.push(quiz);
         }
     }
-
     showQuizs() {
         document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + "$";
         document.getElementById('question-number').innerHTML = "Question " + (this.count + 1) + " :";
@@ -20,6 +20,7 @@ class Game {
         for (let i = 0; i < this.quizs[this.count].answer.length; i++) {
             document.getElementById('' + i).innerHTML = this.quizs[this.count].answer[i];
         }
+        this.countDown();
     }
 
     selectAnswers(index) {
@@ -37,6 +38,9 @@ class Game {
         }
         this.showQuizs();
     }
+    nextQuizs() {
+
+    }
     checkPoint() {
         if (this.count < 5) {
             this.point = 0;
@@ -46,22 +50,26 @@ class Game {
             this.point = 10;
         }
         alert("Số tiền bạn nhận được là :" + this.quizs[this.point].score);
+    }
+
+    changeColor() {
 
     }
-    changeColor(){
+    countDown() {
+        document.getElementById("time").innerHTML = "Time : " + this.time;
+        setInterval(function () {
+            this.time -= 0.1;
 
+        }, 100);
     }
-    nextQuizs(){
-
-    }
-    countDown(){
+    gameOver() {
 
     }
 }
 
-// let game = new Game(5);
-// game.creatQuizs();
-// console.log(game);
-// game.showQuizs();
+let game = new Game(5);
+game.creatQuizs();
+console.log(game);
+game.showQuizs();
 
 
