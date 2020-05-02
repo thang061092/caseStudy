@@ -13,6 +13,7 @@ class Game {
             this.quizs.push(quiz);
         }
     }
+
     showQuizs() {
         document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + "$";
         document.getElementById('question-number').innerHTML = "Question " + (this.count + 1) + " :";
@@ -38,9 +39,11 @@ class Game {
         }
         this.showQuizs();
     }
+
     nextQuizs() {
 
     }
+
     checkPoint() {
         if (this.count < 5) {
             this.point = 0;
@@ -55,13 +58,22 @@ class Game {
     changeColor() {
 
     }
-    countDown() {
-        document.getElementById("time").innerHTML = "Time : " + this.time;
-        setInterval(function () {
-            this.time -= 0.1;
 
-        }, 100);
+    countDown() {
+        let time= document.getElementById("time");
+        let width = 0;
+        let id = setInterval(frame, 100);
+        function frame() {
+            this.time -= 1;
+            if (width == 41) {
+                clearInterval(id);
+            } else {
+                width++;
+                time.style.width = width + '%';
+            }
+        }
     }
+
     gameOver() {
 
     }
