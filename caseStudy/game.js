@@ -4,7 +4,7 @@ class Game {
         this.count = 0;
         this.number = number;
         this.point = 0;
-        this.time = 30;
+
     }
 
     creatQuizs() {
@@ -60,13 +60,15 @@ class Game {
     }
 
     countDown() {
-        let time= document.getElementById("time");
+        let time = document.getElementById("time");
         let width = 0;
-        let id = setInterval(frame, 100);
+        let id = setInterval(frame, 200);
+
         function frame() {
             this.time -= 1;
             if (width == 41) {
                 clearInterval(id);
+                this.gameOver();
             } else {
                 width++;
                 time.style.width = width + '%';
@@ -75,7 +77,9 @@ class Game {
     }
 
     gameOver() {
-
+        document.getElementById("main").innerHTML = 'none';
+        document.getElementById('sound-exit').play();
+        location.reload();
     }
 }
 
