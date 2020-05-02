@@ -62,13 +62,13 @@ class Game {
     countDown() {
         let time = document.getElementById("time");
         let width = 0;
-        let id = setInterval(frame, 200);
+        let id = setInterval(frame, 150);
 
         function frame() {
             this.time -= 1;
             if (width == 41) {
                 clearInterval(id);
-                this.gameOver();
+              this.gameOver();
             } else {
                 width++;
                 time.style.width = width + '%';
@@ -77,13 +77,13 @@ class Game {
     }
 
     gameOver() {
-        document.getElementById("main").innerHTML = 'none';
+        document.getElementById("main").style.display = 'none';
         document.getElementById('sound-exit').play();
         location.reload();
     }
 }
 
-let game = new Game(5);
+let game = new Game(15);
 game.creatQuizs();
 console.log(game);
 game.showQuizs();
