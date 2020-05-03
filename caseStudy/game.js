@@ -89,7 +89,6 @@ class Game {
         console.log("gameOver")
         document.getElementById("main").style.display = 'none';
         document.getElementById("start-game").style.display="block";
-        document.getElementById('sound-exit').play();
         location.reload();
 
     }
@@ -100,7 +99,7 @@ function countDown(){
         time+=0.1;
         timeDiv.style.width = widthTime * time/fullTime + "px";
         if(time >= fullTime){
-            document.getElementById("false").play();
+            document.getElementById("lose").play();
             game.checkPoint();
             clearInterval(run);
             game.gameOver();
