@@ -10,22 +10,18 @@ class Game {
         this.point = 0;
 
     }
-
     getCorrects() {
         return this.quizs.correct;
     }
-
     selectAnswer(info) {
         return this.quizs.answer(info) == this.getCorrects() ? true : false;
     }
-
     creatQuizs() {
         for (let i = 0; i < this.number; i++) {
             let quiz = new Quiz(questions[i][0], questions[i][1], questions[i][2], questions[i][3]);
             this.quizs.push(quiz);
         }
     }
-
     showQuizs() {
         document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + " Điểm";
         document.getElementById('question-number').innerHTML = "Question " + (this.count + 1) + " :";
@@ -35,14 +31,12 @@ class Game {
         }
         time = 0;
     }
-
     selectAnswers(info) {
         let select = this.quizs[this.count].selectAnswer(info);
         if (!select) {
             document.getElementById("false").play();
             this.checkPoint();
             this.count = 0;
-
         } else {
             this.count++;
             document.getElementById("true").play();
@@ -54,7 +48,6 @@ class Game {
         }
         this.showQuizs();
     }
-
     checkPoint() {
         if (this.count < 5) {
             this.point = 0;
@@ -65,25 +58,17 @@ class Game {
         }
         alert("Bạn ra về với số tiền thưởng là :" + this.quizs[this.point].score + "000 vnđ");
     }
-
-    help5050() {
-        this.showQuizs();
-    }
-
     exitss() {
         this.showQuizs();
         this.count += 1;
     }
-
     gameOver() {
         console.log("gameOver")
         document.getElementById("main").style.display = 'none';
         document.getElementById("start-game").style.display = "block";
         location.reload();
-
     }
 }
-
 function countDown() {
     let timeDiv = document.getElementById("time");
     let run = setInterval(function () {
@@ -98,9 +83,7 @@ function countDown() {
     }, 100);
 
 }
-
 let game = null;
-
 function start() {
     document.getElementById('main').style.display = "block";
     document.getElementById('start-game').style.display = 'none';
@@ -111,12 +94,9 @@ function start() {
     game.showQuizs();
     countDown();
 }
-
 function stop() {
     alert("Bạn thua cuộc và không nhận được gì ^^");
     document.getElementById("main").style.display = 'none';
     document.getElementById("start-game").style.display = "block";
     document.getElementById("lose").play();
-
-
 }
