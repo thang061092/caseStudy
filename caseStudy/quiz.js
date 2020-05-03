@@ -87,5 +87,5 @@ function checkPoint() {
 // creatQuiz();
 // showQuiz();
 // console.log(quizs);
-
+//
 
