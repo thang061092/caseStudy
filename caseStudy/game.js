@@ -1,6 +1,7 @@
 let time = 0;
 let fullTime = 10;
-let widthTime =500;
+let widthTime = 500;
+
 class Game {
     constructor(number) {
         this.quizs = [];
@@ -9,18 +10,22 @@ class Game {
         this.point = 0;
 
     }
-    getCorrects(){
+
+    getCorrects() {
         return this.quizs.correct;
     }
-    selectAnswer(info){
-        return this.quizs.answer(info)== this.getCorrects()? true:false;
+
+    selectAnswer(info) {
+        return this.quizs.answer(info) == this.getCorrects() ? true : false;
     }
+
     creatQuizs() {
         for (let i = 0; i < this.number; i++) {
             let quiz = new Quiz(questions[i][0], questions[i][1], questions[i][2], questions[i][3]);
             this.quizs.push(quiz);
         }
     }
+
     showQuizs() {
         document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + " Point";
         document.getElementById('question-number').innerHTML = "Question " + (this.count + 1) + " :";
@@ -28,18 +33,18 @@ class Game {
         for (let i = 0; i < this.quizs[this.count].answer.length; i++) {
             document.getElementById('' + i).innerHTML = this.quizs[this.count].answer[i];
         }
-        time=0;
+        time = 0;
     }
 
     selectAnswers(info) {
         let select = this.quizs[this.count].selectAnswer(info);
         if (!select) {
+            document.getElementById("false").play();
             this.checkPoint();
             this.count = 0;
-            document.getElementById("false").play();
         } else {
             document.getElementById("true").play();
-            this.count ++;
+            this.count++;
             console.log(this.count);
         }
         if (this.count >= this.number) {
@@ -48,6 +53,7 @@ class Game {
         }
         this.showQuizs();
     }
+
     checkPoint() {
         if (this.count < 5) {
             this.point = 0;
@@ -58,15 +64,18 @@ class Game {
         }
         alert("Bạn ra về với số tiền thưởng là :" + this.quizs[this.point].score + "000 vnđ");
     }
-
-    changeColor() {
-
-    }
     // stop(){
     //     document.getElementById("sound-exit").play();
     //     this.gameOver();
     // }
 
+    help5050() {
+
+    }
+
+    exit() {
+
+    }
 
     // countDown() {
     //     let time = document.getElementById("time");
@@ -88,23 +97,24 @@ class Game {
     gameOver() {
         console.log("gameOver")
         document.getElementById("main").style.display = 'none';
-        document.getElementById("start-game").style.display="block";
+        document.getElementById("start-game").style.display = "block";
         location.reload();
 
     }
 }
-function countDown(){
+
+function countDown() {
     let timeDiv = document.getElementById("time");
     let run = setInterval(function () {
-        time+=0.1;
-        timeDiv.style.width = widthTime * time/fullTime + "px";
-        if(time >= fullTime){
+        time += 0.1;
+        timeDiv.style.width = widthTime * time / fullTime + "px";
+        if (time >= fullTime) {
             document.getElementById("lose").play();
             game.checkPoint();
             clearInterval(run);
             game.gameOver();
         }
-    },100);
+    }, 100);
 
 }
 
