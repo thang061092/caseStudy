@@ -10,31 +10,33 @@
 <div id="start-game">
     <h1><img src="ai-1479912951_7818.png" width="250px" height="250px"></h1>
     <h2>Nào chúng ta bắt đầu đi tìm ai là triệu phú!!!</h2>
-    <button id="start" onclick="start()">Start</button>
+    <br>
+    <button class="starts" id="start" onclick="start()">Start</button>
 
 
 </div>
 <div class="main-body" id="main" style="display: none">
-    <h1><img src="ai-1479912951_7818.png" width="300px" height="300px"></h1>
-    <p class="point" id="point"></p>
+    <h1><img src="ai-1479912951_7818.png" width="200px" height="200px"></h1>
+    <h3 class="point" id="point"></h3>
     <br>
     <h2 class="question-number" id="question-number"> Question 1 : </h2>
-    <p class="question" id="question"></p>
+    <h4 class="question" id="question"></h4>
     <br>
     <ul class="answers">
-        <li id="0" onclick="game.selectAnswers(this.id)"></li>
-        <li id="1" onclick="game.selectAnswers(this.id)"></li>
-        <li id="2" onclick="game.selectAnswers(this.id)"></li>
-        <li id="3" onclick="game.selectAnswers(this.id)"></li>
+        A:<li id="0" onclick="game.selectAnswers(this.id)"></li>
+        B:<li id="1" onclick="game.selectAnswers(this.id)"></li>
+        C:<li id="2" onclick="game.selectAnswers(this.id)"></li>
+        D:<li id="3" onclick="game.selectAnswers(this.id)"></li>
     </ul>
     <br>
-    <p>Time:</p>
+    <h4>Time:</h4>
     <div id="time"></div>
     <br><br><br>
     <div class="help">
-        <button class="help5050" id="help5050-sound" onclick="">50/50</button>
-        <button class="exit" id="exit-sound" onclick="">Bỏ Qua</button>
-        <button class="stop" id="stop-sound" onclick="stop()">Stop Play</button>
+        <button class="help" id="help5050-sound" onclick="game.help5050()">50/50</button>
+        <a href="https://www.google.com.vn/?hl=vi" target="_blank" class="myButton">Google</a>
+        <button class="help" id="exit-sound" onclick="game.exitss()">Bỏ Qua</button>
+        <button class="help" id="stop-sound" onclick="stop()">Stop Play</button>
     </div>
     <br><br>
     <audio id="sound" src="Sau_quang_cao.ogg"></audio>

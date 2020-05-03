@@ -27,7 +27,7 @@ class Game {
     }
 
     showQuizs() {
-        document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + " Point";
+        document.getElementById('point').innerHTML = "Point : " + this.quizs[this.count].score + " Điểm";
         document.getElementById('question-number').innerHTML = "Question " + (this.count + 1) + " :";
         document.getElementById('question').innerHTML = this.quizs[this.count].question;
         for (let i = 0; i < this.quizs[this.count].answer.length; i++) {
@@ -42,9 +42,10 @@ class Game {
             document.getElementById("false").play();
             this.checkPoint();
             this.count = 0;
+
         } else {
-            document.getElementById("true").play();
             this.count++;
+            document.getElementById("true").play();
             console.log(this.count);
         }
         if (this.count >= this.number) {
@@ -66,10 +67,12 @@ class Game {
     }
 
     help5050() {
-
+        this.showQuizs();
     }
-    exit() {
 
+    exitss() {
+        this.showQuizs();
+        this.count += 1;
     }
 
     gameOver() {
@@ -104,6 +107,7 @@ function start() {
     document.getElementById('sound').play();
     game = new Game(15);
     game.creatQuizs();
+    console.log(game);
     game.showQuizs();
     countDown();
 }
