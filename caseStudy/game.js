@@ -1,5 +1,5 @@
 let time = 0;
-let fullTime = 10;
+let fullTime = 20;
 let widthTime = 500;
 
 class Game {
@@ -64,35 +64,13 @@ class Game {
         }
         alert("Bạn ra về với số tiền thưởng là :" + this.quizs[this.point].score + "000 vnđ");
     }
-    // stop(){
-    //     document.getElementById("sound-exit").play();
-    //     this.gameOver();
-    // }
 
     help5050() {
 
     }
-
     exit() {
 
     }
-
-    // countDown() {
-    //     let time = document.getElementById("time");
-    //     let width = 0;
-    //     let id = setInterval(frame, 50);
-    //
-    //     function frame() {
-    //         this.time -= 1;
-    //         if (width == 400) {
-    //             clearInterval(id);
-    //           this.gameOver();
-    //         } else {
-    //             width++;
-    //             time.style.width = width + 'px';
-    //         }
-    //     }
-    // }
 
     gameOver() {
         console.log("gameOver")
@@ -118,10 +96,23 @@ function countDown() {
 
 }
 
-// let game = new Game(15);
-// game.creatQuizs();
-// console.log(game);
-// game.showQuizs();
-//
+let game = null;
+
+function start() {
+    document.getElementById('main').style.display = "block";
+    document.getElementById('start-game').style.display = 'none';
+    document.getElementById('sound').play();
+    game = new Game(15);
+    game.creatQuizs();
+    game.showQuizs();
+    countDown();
+}
+
+function stop() {
+    alert("Bạn thua cuộc và không nhận được gì ^^");
+    document.getElementById("main").style.display = 'none';
+    document.getElementById("start-game").style.display = "block";
+    document.getElementById("lose").play();
 
 
+}

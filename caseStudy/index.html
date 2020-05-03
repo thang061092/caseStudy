@@ -34,7 +34,7 @@
     <div class="help">
         <button class="help5050" id="help5050-sound" onclick="">50/50</button>
         <button class="exit" id="exit-sound" onclick="">Bỏ Qua</button>
-        <button class="stop" id="stop-sound" onclick="game.stop()">Stop Play</button>
+        <button class="stop" id="stop-sound" onclick="stop()">Stop Play</button>
     </div>
     <br><br>
     <audio id="sound" src="Sau_quang_cao.ogg"></audio>
@@ -44,18 +44,6 @@
     <audio id="sound-5050" src="5050.ogg"></audio>
 
 </div>
-<script>
-    let game = null;
-    function start() {
-        document.getElementById('main').style.display = "block";
-        document.getElementById('start-game').style.display = 'none';
-        document.getElementById('sound').play();
-        game = new Game(15);
-        game.creatQuizs();
-        game.showQuizs();
-        countDown();
-    }
-</script>
 <script src="quiz.js"></script>
 <script src="game.js"></script>
 </body>
