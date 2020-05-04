@@ -52,9 +52,9 @@ class Game {
         if (this.count < 5) {
             this.point = 0;
         } else if (this.count >= 5 && this.count < 10) {
-            this.point = 5;
+            this.point = 4;
         } else if (this.count >= 10 && this.count < 15) {
-            this.point = 10;
+            this.point = 9;
         }
         alert("Bạn ra về với số tiền thưởng là :" + this.quizs[this.point].score + "000 vnđ");
     }
